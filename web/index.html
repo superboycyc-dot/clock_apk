@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#0c0d0f"><title>翻页时钟</title><link rel="stylesheet" href="style.css"></head>
+<body><div id="focusRing" class="focus-ring" aria-hidden="true" hidden><svg id="ringSvg" width="100%" height="100%"><path id="ringTrack" class="ring-track"/><path id="ringProgress" class="ring-progress" pathLength="1"/><path id="ringOverflow" class="ring-overflow" pathLength="1"/></svg></div><header><nav><button id="clockTab" class="selected">当前时间</button><button id="focusTab">专注模式</button></nav><button id="settingsButton" class="icon" aria-label="设置">⚙</button></header>
+<main id="screen" tabindex="0" aria-label="计时后点击屏幕暂停或继续专注">
+<div id="timerStage" class="timer-stage">
+<div id="displaySwitch" hidden><button id="flipView" class="active">翻页</button><span>/</span><button id="digitalView">数字</button></div>
+<button id="add5" class="add-time" aria-label="增加5分钟" hidden><span>+5</span><small>min</small></button>
+<div id="clock" class="clock" aria-live="off"></div>
+<button id="add10" class="add-time" aria-label="增加10分钟" hidden><span>+10</span><small>min</small></button>
+</div>
+<div id="subline" class="subline" hidden></div>
+<section id="setup" hidden>
+<div class="picker-wrap"><div id="minuteWheel" role="listbox" tabindex="0" aria-label="专注分钟" aria-orientation="vertical"></div><span class="picker-unit" aria-hidden="true">分钟</span></div>
+<div class="presets"><button data-min="15">15 分钟</button><button data-min="30">30 分钟</button><button data-min="45">45 分钟</button><button data-min="60">60 分钟</button><button id="recentPreset" data-min="" hidden></button></div>
+<div class="start-actions"><button id="start" class="primary">开始</button><button id="superStart" class="super-start">超级启动</button></div>
+</section>
+<p id="gestureHint" class="gesture-hint" hidden>轻点空白处开始</p>
+</main>
+<footer><button id="end" class="danger" hidden>结束</button><button id="fullscreen" aria-label="全屏" title="全屏">⛶</button></footer><dialog id="settings"><form method="dialog"><div class="dialoghead"><h2>显示设置</h2><button aria-label="关闭">×</button></div><label class="setting">显示秒数<input id="seconds" type="checkbox"></label><label class="setting">显示日期与星期<input id="date" type="checkbox"></label><label class="setting">12 小时制<input id="twelve" type="checkbox"></label><label class="setting">保持屏幕常亮<input id="awake" type="checkbox" checked></label><label class="setting">结束提示音<input id="sound" type="checkbox" checked></label><label class="setting">结束振动<input id="vibrate" type="checkbox" checked></label><div class="update-settings"><label class="setting">自动检查更新<input id="autoUpdates" type="checkbox" checked></label><button id="checkUpdates" type="button">检查更新<span id="appVersion">1.2.0</span></button></div></form></dialog><dialog id="confirm"><h2>结束本次专注？</h2><p>当前倒计时将被清除。</p><div class="controls"><button id="cancelEnd">继续专注</button><button id="confirmEnd" class="danger">结束专注</button></div></dialog><div id="toast" role="status"></div><script src="app.js"></script></body></html>
