@@ -1,0 +1,7 @@
+.tools/
+.build/
+.signing/
+dist/
+.DS_Store
+preview/
+*.log
